@@ -1,205 +1,181 @@
-# FuelPHP + React Portfolio
+# FuelPHP + React ポートフォリオ
 
-A modern portfolio application built with FuelPHP backend API and React TypeScript frontend, designed to run in a XAMPP environment.
+FuelPHPのAPIとReact TypeScriptで作ったポートフォリオサイトです。XAMPP環境で動きます。
 
-## 🚀 Features
+## 機能
 
-- **Modern Tech Stack**: FuelPHP backend with React TypeScript frontend
-- **Responsive Design**: Mobile-first design with modern UI components
-- **RESTful API**: Clean API architecture with proper error handling
-- **Database Integration**: MySQL database with comprehensive schema
-- **XAMPP Ready**: Pre-configured for XAMPP development environment
-- **TypeScript**: Full TypeScript support for better development experience
-- **Modern Workflows**: Development and production build processes
+- FuelPHP（バックエンド）+ React TypeScript（フロントエンド）
+- スマホ対応のレスポンシブデザイン
+- REST API
+- MySQL連携
+- XAMPP対応
+- TypeScript完全対応
 
-## 📁 Project Structure
+## フォルダ構成
 
 ```
 fuel-react-portfolio/
-├── api/                          # FuelPHP Backend
+├── api/                          # FuelPHP側
 │   ├── fuel/
 │   │   ├── app/
 │   │   │   ├── classes/
-│   │   │   │   ├── controller/   # API Controllers
-│   │   │   │   └── model/        # Database Models
-│   │   │   └── config/           # Configuration files
-│   │   └── core/                 # FuelPHP Core (to be installed)
-│   └── public/                   # Public API entry point
-├── frontend/                     # React TypeScript Frontend
+│   │   │   │   ├── controller/   # APIコントローラ
+│   │   │   │   └── model/        # モデル
+│   │   │   └── config/           # 設定
+│   │   └── core/                 # FuelPHPコア（要インストール）
+│   └── public/                   
+├── frontend/                     # React側
 │   ├── src/
-│   │   ├── components/           # Reusable UI components
-│   │   ├── pages/               # Page components
-│   │   ├── services/            # API services
-│   │   ├── types/               # TypeScript type definitions
-│   │   └── utils/               # Utility functions
-│   └── public/                  # Public assets
-├── database/                    # Database schema and seeds
-├── .htaccess                   # Apache rewrite rules
-└── xampp-config.md             # XAMPP configuration guide
+│   │   ├── components/           # コンポーネント
+│   │   ├── pages/               # ページ
+│   │   ├── services/            # API関連
+│   │   ├── types/               # 型定義
+│   │   └── utils/               
+│   └── public/                  
+├── database/                    # DB関連
+├── .htaccess                   
+└── xampp-config.md             
 ```
 
-## 🛠️ Installation & Setup
+## セットアップ
 
-### Prerequisites
+### 必要なもの
 
-- XAMPP (Apache, MySQL, PHP 7.4+)
-- Node.js (v16+)
-- npm or yarn
+- XAMPP（Apache、MySQL、PHP 7.4+）
+- Node.js（v16+）
+- npm
 
-### Step 1: Download FuelPHP
+### 1. FuelPHPダウンロード
 
-```bash
-# Download FuelPHP 1.8.x from https://fuelphp.com/downloads
-# Extract to api/fuel/core/ directory
-```
+https://fuelphp.com/downloads から1.8.xをダウンロードして、`api/fuel/core/`に展開してください。
 
-### Step 2: Install Dependencies
+### 2. パッケージインストール
 
 ```bash
-# Install project dependencies
 npm run install:all
 ```
 
-### Step 3: Database Setup
+### 3. データベース準備
 
-1. Start XAMPP (Apache + MySQL)
-2. Open phpMyAdmin (http://localhost/phpmyadmin)
-3. Create database `portfolio_db`
-4. Import `database/schema.sql`
-5. Import `database/seeds.sql` (optional sample data)
+1. XAMPPでApacheとMySQLを起動
+2. phpMyAdmin（http://localhost/phpmyadmin）を開く
+3. `portfolio_db`データベースを作成
+4. `database/schema.sql`をインポート
+5. 必要に応じて`database/seeds.sql`もインポート
 
-### Step 4: Configuration
+### 4. 設定
 
-1. Update database credentials in `api/fuel/app/config/db.php`
-2. Follow XAMPP configuration in `xampp-config.md`
-3. Ensure mod_rewrite is enabled in Apache
+1. `api/fuel/app/config/db.php`でDB接続情報を設定
+2. `xampp-config.md`を参考にXAMPPを設定
+3. Apacheのmod_rewriteが有効になっているか確認
 
-### Step 5: Build & Run
+### 5. 起動
 
 ```bash
-# Development mode
+# 開発用
 npm run dev
 
-# Build for production
+# 本番用ビルド
 npm run build
 ```
 
-## 🌐 API Endpoints
+## API
 
-- `GET /api/portfolio` - Get portfolio information
-- `GET /api/projects` - Get all projects
-- `GET /api/projects/{id}` - Get specific project
-- `GET /api/skills` - Get skills data
-- `POST /api/contact` - Submit contact form
+- `GET /api/portfolio` - ポートフォリオ情報
+- `GET /api/projects` - プロジェクト一覧
+- `GET /api/projects/{id}` - プロジェクト詳細
+- `GET /api/skills` - スキル情報
+- `POST /api/contact` - お問い合わせ送信
 
-## 🎨 Frontend Features
+## ページ構成
 
-- **Home Page**: Hero section, featured projects, skills showcase
-- **Projects Page**: Filterable project gallery with detailed views
-- **Contact Page**: Contact form with validation
-- **Responsive Navigation**: Mobile-friendly header with hamburger menu
-- **Modern UI**: Clean, professional design with smooth animations
+- **トップページ**: 自己紹介、注目プロジェクト、スキル
+- **プロジェクト**: 作品一覧（フィルタ機能付き）
+- **お問い合わせ**: コンタクトフォーム
+- ハンバーガーメニュー対応
 
-## 🔧 Development Workflow
-
-### Available Scripts
+## 開発用コマンド
 
 ```bash
-npm run dev          # Start development servers
-npm run build        # Build for production
-npm run test         # Run frontend tests
-npm run setup        # Complete setup process
+npm run dev          # 開発サーバー起動
+npm run build        # 本番ビルド
+npm run test         # テスト実行
+npm run setup        # 初期セットアップ
 ```
 
-### Frontend Development
+### フロントエンド単体
 
 ```bash
 cd frontend
-npm start            # Start React development server
-npm run build        # Build for production
-npm test             # Run tests
+npm start            # React開発サーバー
+npm run build        # ビルド
+npm test             # テスト
 ```
 
-## 📱 Responsive Design
+## レスポンシブ対応
 
-The application is fully responsive and optimized for:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (< 768px)
+- デスクトップ（1200px以上）
+- タブレット（768-1199px）
+- スマホ（768px未満）
 
-## 🎯 Customization
+## カスタマイズ
 
-### Updating Portfolio Content
+### コンテンツ更新
 
-1. **Projects**: Add/edit projects in the database `projects` table
-2. **Skills**: Modify skills in the database `skills` table
-3. **Personal Info**: Update portfolio data in `api/fuel/app/classes/controller/portfolio.php`
-4. **Styling**: Customize CSS in the respective component CSS files
+1. **プロジェクト**: DBの`projects`テーブルを編集
+2. **スキル**: DBの`skills`テーブルを編集
+3. **プロフィール**: `api/fuel/app/classes/controller/portfolio.php`を編集
+4. **デザイン**: 各コンポーネントのCSSを編集
 
-### Adding New Features
+### 機能追加
 
-1. **Backend**: Add controllers in `api/fuel/app/classes/controller/`
-2. **Frontend**: Add components in `frontend/src/components/`
-3. **Database**: Update schema in `database/schema.sql`
+1. **API**: `api/fuel/app/classes/controller/`にコントローラ追加
+2. **画面**: `frontend/src/components/`にコンポーネント追加
+3. **DB**: `database/schema.sql`を更新
 
-## 🚀 Deployment
+## 公開
 
-### Production Build
+### ビルド
 
 ```bash
 npm run build
 ```
 
-### Deployment Options
+### 公開先
 
-1. **Shared Hosting**: Upload to your hosting provider's public_html
-2. **VPS**: Configure Apache virtual host
-3. **Cloud**: Deploy on platforms like Heroku, DigitalOcean
+1. **レンタルサーバー**: public_htmlにアップロード
+2. **VPS**: Apacheの設定
+3. **クラウド**: Heroku、DigitalOceanなど
 
-## 🛡️ Security Considerations
+## セキュリティ
 
-- CORS headers properly configured
-- SQL injection protection via FuelPHP ORM
-- Input validation on all forms
-- XSS protection enabled
-- Environment-based configuration
+- CORS設定済み
+- SQLインジェクション対策（ORM使用）
+- XSS対策
+- 入力値検証
 
-## 🐛 Troubleshooting
+## よくある問題
 
-### Common Issues
+### API が404エラー
 
-1. **404 API Errors**
-   - Check Apache mod_rewrite is enabled
-   - Verify .htaccess files are present
+- mod_rewriteが有効か確認
+- .htaccessファイルがあるか確認
 
-2. **Database Connection**
-   - Verify MySQL is running
-   - Check credentials in config/db.php
+### DB接続エラー
 
-3. **CORS Issues**
-   - Ensure API controllers include CORS headers
+- MySQLが起動しているか確認
+- `config/db.php`の設定を確認
 
-See `xampp-config.md` for detailed troubleshooting guide.
+### CORS エラー
 
-## 🤝 Contributing
+- APIコントローラでCORSヘッダーを送信しているか確認
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+詳しくは`xampp-config.md`を見てください。
 
-## 📄 License
+## ライセンス
 
-This project is licensed under the MIT License. See LICENSE file for details.
-
-## 👨‍💻 Author
-
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Name](https://linkedin.com/in/yourname)
-- Email: your.email@example.com
+MIT License
 
 ---
 
-Built with ❤️ using FuelPHP, React, and TypeScript
+FuelPHP + React + TypeScriptで作成
