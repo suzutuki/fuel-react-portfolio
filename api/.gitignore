@@ -1,0 +1,52 @@
+# FuelPHP Backend .gitignore
+
+# FuelPHP specific
+fuel/app/logs/*
+fuel/app/cache/*
+fuel/app/tmp/*
+!fuel/app/logs/.gitkeep
+!fuel/app/cache/.gitkeep
+!fuel/app/tmp/.gitkeep
+
+# FuelPHP Core (should be downloaded separately)
+fuel/core/*
+fuel/packages/auth/*
+fuel/packages/email/*
+fuel/packages/oil/*
+fuel/packages/orm/*
+fuel/packages/parser/*
+
+# Vendor directories (if using Composer)
+vendor/
+
+# Environment configuration
+.env
+
+# Database configuration with credentials
+fuel/app/config/development/
+fuel/app/config/production/
+fuel/app/config/staging/
+
+# Uploaded files
+public/assets/img/uploads/
+public/uploads/
+
+# Session files
+fuel/app/tmp/sessions/*
+
+# Log files
+*.log
+fuel/app/logs/*.log
+
+# Cache files
+fuel/app/cache/*.cache
+fuel/app/cache/fuel/*
+
+# Compiled assets
+public/assets/css/compiled/
+public/assets/js/compiled/
+
+# Backup files
+*.bak
+*.backup
+*.sql~

@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Handle Angular and other SPA routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^/frontend/
+RewriteRule . /fuel-react-portfolio/frontend/public/index.html [L]
+
+# Redirect API calls to FuelPHP
+RewriteCond %{REQUEST_URI} ^/fuel-react-portfolio/api/(.*)
+RewriteRule ^api/(.*)$ api/public/index.php/$1 [QSA,L]

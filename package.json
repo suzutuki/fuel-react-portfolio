@@ -1,0 +1,39 @@
+{
+  "name": "fuel-react-portfolio",
+  "version": "1.0.0",
+  "description": "Full-stack portfolio application with FuelPHP backend and React TypeScript frontend",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm start",
+    "dev:backend": "echo 'Backend runs on XAMPP Apache server'",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "install:all": "npm install && cd frontend && npm install",
+    "test": "cd frontend && npm test",
+    "lint": "cd frontend && npm run lint",
+    "setup": "npm run install:all && npm run setup:db",
+    "setup:db": "echo 'Please import database/schema.sql and database/seeds.sql into your MySQL database'",
+    "start": "npm run dev"
+  },
+  "keywords": [
+    "portfolio",
+    "fuelphp",
+    "react",
+    "typescript",
+    "mysql",
+    "xampp"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/fuel-react-portfolio.git"
+  }
+}
