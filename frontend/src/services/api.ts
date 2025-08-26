@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Project, Skill, Portfolio, ContactForm } from '@/types';
+import { Project, Skill, Portfolio, ContactForm } from '../types';
 
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
   ? '/api' 

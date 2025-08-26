@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { portfolioApi, projectsApi } from '@/services/api';
-import { Portfolio, Project, Skill } from '@/types';
+import { portfolioApi, projectsApi } from '../services/api';
+import { Portfolio, Project, Skill } from '../types';
 import './Home.css';
 
 export const Home: React.FC = () => {

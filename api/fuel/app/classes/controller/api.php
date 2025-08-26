@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Api extends Controller_Rest
+class Controller_Api extends Controller
 {
     public function before()
     {
@@ -12,7 +12,7 @@ class Controller_Api extends Controller_Rest
         $this->response->set_header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
         
         // Handle preflight requests
-        if ($this->request->method === 'OPTIONS')
+        if (Input::method() === 'OPTIONS')
         {
             return $this->response();
         }
@@ -20,9 +20,11 @@ class Controller_Api extends Controller_Rest
     
     protected function send_response($data, $status = 200)
     {
-        $this->response->set_status($status);
-        $this->response->set_header('Content-Type', 'application/json');
-        return $this->response($data);
+        Response::forge(json_encode($data), $status, array(
+            'Content-Type' => 'application/json',
+            'Access-Control-Allow-Origin' => '*'
+        ))->send(true);
+        exit;
     }
     
     protected function send_error($message, $status = 400)

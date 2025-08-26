@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { contactApi } from '@/services/api';
-import { ContactForm } from '@/types';
+import { contactApi } from '../services/api';
+import { ContactForm } from '../types';
 import './Contact.css';
 
 export const Contact: React.FC = () => {

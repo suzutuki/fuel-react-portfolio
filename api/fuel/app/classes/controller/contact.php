@@ -4,7 +4,7 @@ class Controller_Contact extends Controller_Api
 {
     public function action_index()
     {
-        if ($this->request->method === 'POST') {
+        if (Input::method() === 'POST') {
             return $this->action_submit();
         }
         
@@ -14,7 +14,7 @@ class Controller_Contact extends Controller_Api
     public function action_submit()
     {
         try {
-            $input = json_decode($this->request->body(), true);
+            $input = json_decode(file_get_contents('php://input'), true);
             
             $validation = Validation::forge();
             $validation->add('name', 'Name')->add_rule('required')->add_rule('min_length', 2);
