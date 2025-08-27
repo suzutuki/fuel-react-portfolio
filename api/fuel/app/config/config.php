@@ -29,7 +29,7 @@ return array(
         'csrf_expiration'  => 0,
         'uri_filter'       => array('htmlentities'),
         'input_filter'  => array(),
-        'output_filter' => array('Security::htmlentities'),
+        'output_filter'  => array('htmlentities'),
         'auto_filter_output'  => true,
         'whitelisted_classes' => array(
             'Fuel\\Core\\Presenter',
